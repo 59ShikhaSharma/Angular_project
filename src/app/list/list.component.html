@@ -1,0 +1,84 @@
+<!-- PROPERTY BINDING -->
+<h2> Image through Property binding  </h2>
+<img [src]="intro.pImage"  [ngStyle]="{height:'80px',width:'80px'}">
+
+<!-- also done with data binding -->
+<!-- <img src={{intro.pImage}}> -->
+<h2>Data Binding</h2>
+<!-- DATA BINDING -->
+<!-- using normal declaration -->
+<!-- <p>Name :{{name}}</p>
+<p>Age:{{age}}</p>
+<p>Phone No : {{phoneNumber}}</p>
+<p>Gender: {{gender}}</p> -->
+<!-- by using object -->
+<p>Name :{{intro.name}}</p>
+<p>Age:{{intro.age}}</p>
+<p>Phone No : {{intro.phoneNumber}}</p>
+<p>Gender: {{intro.gender}}</p>
+
+<!-- PROPERTY BINDING-->
+<!-- <input [value]="name"> -->
+<!-- we can also use bind-value property -->
+<!-- <input bind-value="name"> -->
+
+
+<!-- EVENT BINDING -->
+<h1>Event binding</h1>
+<!-- console -->
+<h3>While writing it will print to console</h3>
+<input [disabled]="isDisabled" (input)="onChange($event)"><br><br><br>
+
+
+<!-- While writing  -->
+<h3>While writing it will print  </h3>
+<input [disabled]="isDisabled" (input)="onNameChange($event)"><br>
+
+<p>text:{{text}}</p>
+
+<!-- on click  -->
+<h3>After on click </h3>
+<input [disabled]="isDisabled" type="" name="" value=""><br>
+<button [disabled]="isDisabled" (change)="onClickMe()">Submit</button>
+
+
+<!-- Two way data binding -->
+<h2>Two Way Data Binding</h2>
+<!-- While writing  -->
+<h3>While writing it will print  </h3>
+<input [disabled]="isDisabled" [(ngModel)]="name1"><br>
+<p>text:{{name1}}</p>
+
+
+<!-- Radio buttons -->
+<label>
+  <input type="radio" name="isDisabled" (change)="setDisabled(true)" [checked]="isDisabled">  Disable
+</label>
+<label>
+  <input type="radio" name="isDisabled" (change)="setDisabled(false)" [checked]="!isDisabled"> Enable
+</label>
+
+
+
+
+
+<!-- DIRECTIVES  -->
+<!-- ngFor -->
+
+<!-- <div *ngFor="let item of [1,2,3,4,5]">
+    <p>Current element of the array is : {{item}}</p>
+</div> -->
+<!-- ngStyle -->
+<!-- <p>USING ngFor and ngStyle</p>
+<div [ngStyle]="{fontWeight:'bold'}" *ngFor="let item of listOfString">
+    <p>Current element of the array is : {{item}}</p>
+</div> -->
+
+<!-- ngIf -->
+<!-- <p>Using ngIf</p>
+<div *ngIf="intro">Hello, {{intro.name}}</div> -->
+
+
+  
+  
+

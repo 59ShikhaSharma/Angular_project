@@ -1,0 +1,28 @@
+<!-- products.component.html -->
+<!-- Directives -->
+
+<div class="product-container">
+  <div *ngFor="let product of products" class="product-item" (click)="showProductDescription(product)">
+    <img [src]="product.imageUrl" alt="Product Image">
+    <h2>{{ product.name }}</h2>
+    <p>Price: ${{ product.price }}</p>
+    <p>{{ product.description }}</p>
+    <div class="actions">
+      <button class="add-to-cart-btn" (click)="addToCart(product)">Add to Cart</button>
+      <div class="rating">
+        <span class="star" (click)="rateProduct(product.id, 1)">☆</span>
+        <span class="star" (click)="rateProduct(product.id, 2)">☆</span>
+        <span class="star" (click)="rateProduct(product.id, 3)">☆</span>
+        <span class="star" (click)="rateProduct(product.id, 4)">☆</span>
+        <span class="star" (click)="rateProduct(product.id, 5)">☆</span>
+      </div>
+    </div>
+  </div>
+  <product-details
+  [showPopup]="showPopup"
+  [selectedProduct]="selectedProduct"
+  (close)="hideProductDescription()">
+</product-details>
+</div>
+
+  
