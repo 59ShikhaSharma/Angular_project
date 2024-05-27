@@ -6,3 +6,7 @@ export interface productDetails {
     imageUrl: string
     general: string
 }
+
+
+
+  

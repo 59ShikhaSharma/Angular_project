@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { productDetails } from '../interface/product-interface';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'product',
@@ -19,6 +20,9 @@ export class ProductComponent {
     { id: 9, name: 'T-Shirt', price: 60, description: 'Cotton, Black Round neck ', imageUrl: '/assets/images/dress9.jpg' ,general:"Round neck t-shirt, solid black , regular fit , design on the front , half sleeves" }
   ];
 
+  
+   
+
   showPopup: boolean = false;
   selectedProduct: any;
   showProductDescription(product: any): void {
@@ -29,10 +33,6 @@ export class ProductComponent {
     this.showPopup = false;
   }
 
-  addToCart(product: any) {
-    //  logic for adding the product to the cart here
-    console.log('Added to cart:', product);
-  }
 
 
   rateProduct(productId: number, rating: number) {
@@ -43,5 +43,33 @@ export class ProductComponent {
       // product.rating = rating;
     }
   }
-}
+
+  cartItems: productDetails[] = []; // Variable to store items in the cart
+
   
+
+  // Other methods remain unchanged...
+  @Output() addToCartEvent = new EventEmitter<productDetails[]>(); // EventEmitter to emit cartItems to parent component
+
+  @Output() cartItemsChange = new EventEmitter<productDetails[]>();
+
+  // constructor() {}
+  constructor(private cartService: CartService) {}
+
+
+  
+
+
+
+  addToCart(product: productDetails) {
+    // Add the product to the cart
+    //this.cartItems.push(product);
+    console.log('Added to cart:', this.cartItems);
+    //this.cartItemsChange.emit(this.cartItems);
+    this.cartService.addToCart(product);
+    alert('Item added to cart!');
+  }
+  
+ 
+
+}
