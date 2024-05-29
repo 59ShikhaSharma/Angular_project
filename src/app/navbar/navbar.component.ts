@@ -1,21 +1,7 @@
-// import { Component, Input } from '@angular/core';
-// import { productDetails } from '../interface/product-interface';
-
-// @Component({
-//   selector: 'navbar',
-//   templateUrl: './navbar.component.html',
-//   styleUrls: ['./navbar.component.css']
-// })
-// export class NavbarComponent {
-//   @Input() cartItems: productDetails[] = [];
-
-//   constructor() {}
-
-// }
-
-import { Component, OnInit , Output, EventEmitter  } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CartService } from '../cart.service';
-import { productDetails } from '../interface/product-interface';
+import { IproductDetails } from '../interface/product-interface';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'navbar',
@@ -23,36 +9,24 @@ import { productDetails } from '../interface/product-interface';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
- searchQuery: string = '';
-  cartItems: productDetails[] = [];
+  cartItems: IproductDetails[] = [];
 
-@Output() search = new EventEmitter<string>();
+  @Output() search = new EventEmitter<string>();
 
-  onSearch() {
-    this.search.emit(this.searchQuery.trim());
-  }
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.cartItems = this.cartService.getCartItems();
   }
+
+  onSearch(event: any): void {
+    const query = event.target.value;
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { search: query },
+      queryParamsHandling: 'merge'
+    });
+  }
 }
 
-// import { Component, Input, Output, EventEmitter  } from '@angular/core';
-// import { productDetails } from '../interface/product-interface';
 
-// @Component({
-//   selector: 'navbar',
-//   templateUrl: './navbar.component.html',
-//   styleUrls: ['./navbar.component.css']
-// })
-// export class NavbarComponent {
-//   searchQuery: string = '';
-//   @Input() cartItems: productDetails[] = [];
-//   @Output() search = new EventEmitter<string>();
-
-//   onSearch() {
-//     this.search.emit(this.searchQuery.trim());
-//   }
-//   constructor() {}
-// }

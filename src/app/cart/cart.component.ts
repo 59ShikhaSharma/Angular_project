@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
-import { productDetails } from '../interface/product-interface';
+import { IproductDetails } from '../interface/product-interface';
 
 @Component({
   selector: 'cart',
@@ -8,12 +8,21 @@ import { productDetails } from '../interface/product-interface';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  cartItems: productDetails[] = [];
-
-  constructor(private cartService: CartService) {}
+  cartItems: IproductDetails[] = [];
+  constructor(private cartService: CartService) { }
 
   ngOnInit() {
     this.cartItems = this.cartService.getCartItems();
     console.log(this.cartItems);
+  }
+
+  increaseQuantity(item: any) {
+    item.quantity++;
+  }
+
+  decreaseQuantity(item: any) {
+    if (item.quantity > 0) {
+      item.quantity--;
+    }
   }
 }

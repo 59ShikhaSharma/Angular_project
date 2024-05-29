@@ -17,24 +17,21 @@ import { ProductComponent } from './product/product.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-
-
+import { HttpClientModule } from '@angular/common/http';
 
 
 //defining routes
-const routes:Routes = [
-  {path:"Home",component: HomeComponent},
-  {path:"About", component:AboutComponent},
-  {path:"Contact",component:ContactComponent},
-  {path:"**", component:NotFoundComponent}
+const routes: Routes = [
+  { path: "Home", component: HomeComponent },
+  { path: "About", component: AboutComponent },
+  { path: "Contact", component: ContactComponent },
+  { path: "**", component: NotFoundComponent }
 ]
-
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-   
     ListComponent,
     NavbarComponent,
     HomeComponent,
@@ -49,7 +46,8 @@ const routes:Routes = [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

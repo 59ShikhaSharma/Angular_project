@@ -1,6 +1,6 @@
 <!-- PROPERTY BINDING -->
-<h2> Image through Property binding  </h2>
-<img [src]="intro.pImage"  [ngStyle]="{height:'80px',width:'80px'}">
+<h2> Image through Property binding </h2>
+<img [src]="intro.pImage" [ngStyle]="{height:'80px',width:'80px'}">
 
 <!-- also done with data binding -->
 <!-- <img src={{intro.pImage}}> -->
@@ -30,9 +30,11 @@
 <input [disabled]="isDisabled" (input)="onChange($event)"><br><br><br>
 
 
+
 <!-- While writing  -->
-<h3>While writing it will print  </h3>
+<h3>While writing it will print </h3>
 <input [disabled]="isDisabled" (input)="onNameChange($event)"><br>
+
 
 <p>text:{{text}}</p>
 
@@ -45,14 +47,14 @@
 <!-- Two way data binding -->
 <h2>Two Way Data Binding</h2>
 <!-- While writing  -->
-<h3>While writing it will print  </h3>
+<h3>While writing it will print </h3>
 <input [disabled]="isDisabled" [(ngModel)]="name1"><br>
 <p>text:{{name1}}</p>
 
 
 <!-- Radio buttons -->
 <label>
-  <input type="radio" name="isDisabled" (change)="setDisabled(true)" [checked]="isDisabled">  Disable
+  <input type="radio" name="isDisabled" (change)="setDisabled(true)" [checked]="isDisabled"> Disable
 </label>
 <label>
   <input type="radio" name="isDisabled" (change)="setDisabled(false)" [checked]="!isDisabled"> Enable
@@ -77,8 +79,3 @@
 <!-- ngIf -->
 <!-- <p>Using ngIf</p>
 <div *ngIf="intro">Hello, {{intro.name}}</div> -->
-
-
-  
-  
-

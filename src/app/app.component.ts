@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { productDetails } from './interface/product-interface';
+import { IproductDetails } from './interface/product-interface';
 
 @Component({
   selector: 'app-root',
@@ -8,20 +8,14 @@ import { productDetails } from './interface/product-interface';
 })
 export class AppComponent {
   title = 'learn-angular';
-  cartItems: productDetails[] = [];
+  cartItems: IproductDetails[] = [];
 
-  handleCartItems(items: productDetails[]) {
+  handleCartItems(items: IproductDetails[]) {
     this.cartItems = items;
     console.log('Received cart items:', this.cartItems);
-    // Handle the cart items as needed in the parent component
   }
 
-  updateCartItems(items: productDetails[]) {
+  updateCartItems(items: IproductDetails[]) {
     this.cartItems = items;
   }
-
-  handleSearch(searchQuery: string) {
-    // Implement your search logic here
-  }
-
 }
