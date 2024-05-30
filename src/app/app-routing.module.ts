@@ -4,6 +4,7 @@ import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { FormComponent } from './form/form.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,9 @@ const routes: Routes = [
   },
   {
     path: 'contact', component: ContactComponent
+  },
+  {
+    path:'form', component:FormComponent
   },
 ];
 

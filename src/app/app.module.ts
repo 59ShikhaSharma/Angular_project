@@ -18,6 +18,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { CartComponent } from './cart/cart.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormComponent } from './form/form.component';
 
 
 //defining routes
@@ -40,7 +41,8 @@ const routes: Routes = [
     ProductComponent,
     ProductDetailsComponent,
     CartComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,

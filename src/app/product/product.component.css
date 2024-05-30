@@ -48,6 +48,19 @@
     cursor: pointer;
     border-radius: 5px;
   }
+  .add-to-cart {
+    background-color: palevioletred;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
 
   .rating {
     display: flex;

@@ -59,9 +59,11 @@
 
 import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 import { IproductDetails } from '../interface/product-interface';
-import { CartService } from '../cart.service';
-import { ProductService } from '../product.service';
+import { CartService } from '../services/cart.service';
+import { ProductService } from '../services/product.service';
 import { ActivatedRoute } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
+import { FormDataService } from '../services/form-data.service';
 
 @Component({
   selector: 'product',
@@ -70,16 +72,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductComponent implements OnInit {
   cartItems: IproductDetails[] = [];
-  @Output() addToCartEvent = new EventEmitter<IproductDetails[]>(); // EventEmitter to emit cartItems to parent component
-  @Output() cartItemsChange = new EventEmitter<IproductDetails[]>();
   products: IproductDetails[] = [];
   filteredProducts: IproductDetails[] = [];
   showPopup: boolean = false;
   selectedProduct: any;
+  @Output() addToCartEvent = new EventEmitter<IproductDetails[]>();
+  @Output() cartItemsChange = new EventEmitter<IproductDetails[]>();
+
 
   constructor(private productService: ProductService,
     private cartService: CartService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute, private formBuilder: FormBuilder, private formDataService: FormDataService
   ) { }
 
   ngOnInit(): void {
@@ -99,6 +102,10 @@ export class ProductComponent implements OnInit {
           rating: item.rating
         }));
         this.filteredProducts = this.products;
+        this.formDataService.datausers.forEach((item) => {
+          this.filteredProducts.unshift(item);
+        })
+
         this.route.queryParams.subscribe(params => {
           this.filterProducts(params['search'] || '');
         });
@@ -108,6 +115,14 @@ export class ProductComponent implements OnInit {
         console.error('Error fetching products:', error);
       }
     );
+  }
+
+  deleteProduct(id: number) {
+    this.filteredProducts.splice(id, 1);
+  }
+
+  updateProduct() {
+    console.log("Product is updated");
   }
 
   filterProducts(query: string): void {

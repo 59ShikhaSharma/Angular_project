@@ -52,3 +52,15 @@
 .search-container {
   margin-left: 15px;
 }
+
+.img-form {
+  margin-left: 15px;
+  height: 30px;
+  width: 30px;
+}
+.img-main {
+  margin-left: 15px;
+  margin-right: 20px;
+  height: 40px;
+  width: 80px;
+}
