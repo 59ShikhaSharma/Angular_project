@@ -5,10 +5,14 @@ import { CartComponent } from './cart/cart.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { FormComponent } from './form/form.component';
+import { UpdateFormComponent } from './update-form/update-form.component';
 
 const routes: Routes = [
   {
     path: 'product', component: ProductComponent
+  },
+  {
+    path: 'update/:id', component:UpdateFormComponent
   },
   {
     path: 'cart', component: CartComponent
