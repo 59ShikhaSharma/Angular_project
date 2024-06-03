@@ -1,21 +1,25 @@
-<!-- <p>cart works!</p> -->
-<div *ngIf="cartItems.length > 0; else emptyCart">
+<div class="cart-container" *ngIf="cartItems.length > 0; else emptyCart">
   <h2>Cart Items</h2>
-  <ul>
-    <li *ngFor="let item of cartItems">
+  <ul class="cart-items">
+    <li *ngFor="let item of cartItems" class="cart-item">
       <img class="product-image" [src]="item.imageUrl" alt="Product Image">
-      <h3>{{ item.name }}</h3>
-      <p>Price: ${{ item.price }}</p>
-      <p>Description: {{ item.description }}</p>
-      <h4>quantity : </h4>
-      <button (click)="decreaseQuantity(item)"><strong>-</strong></button>
-      <span>{{ item.quantity }}</span>
-      <button (click)="increaseQuantity(item)"><strong>+</strong></button>
-      <br><br>
-      <button>Buy now </button>
-      <br><br>
+      <div class="product-details">
+        <h3>{{ item.name }}</h3>
+        <p class="price">Price: ${{ item.price }}</p>
+        <p class="description">Description: {{ item.description }}</p>
+        <div class="quantity">
+          <h4>Quantity : </h4>
+          <button (click)="decreaseQuantity(item)"><strong>-</strong></button>
+          <span>{{ item.quantity }}</span>
+          <button (click)="increaseQuantity(item)"><strong>+</strong></button>
+        </div>
+        <button class="buy-button">Buy now </button>
+      </div>
     </li>
   </ul>
+  <div class="total-price" *ngIf="cartItems.length > 0">
+    <h2>Total Price: ${{ totalPrice }}</h2>
+  </div>
 </div>
 <ng-template #emptyCart>
   <p>No items in the cart.</p>

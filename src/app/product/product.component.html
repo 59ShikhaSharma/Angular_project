@@ -1,6 +1,5 @@
 <div class="product-container">
-  <div *ngFor="let product of filteredProducts; let i = index" class="product-item"
-    >
+  <div *ngFor="let product of filteredProducts; let i = index" class="product-item">
     <img [src]="product.imageUrl" alt="Product Image">
     <h2>{{ product.name }}</h2>
     <p>Price: ${{ product.price }}</p>

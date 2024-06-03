@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class FormDataService {
-updatedProductData:any
-productId:number=-1;
+  updatedProductData: any
+  productId: number = -1;
+  datausers: any[] = [];
   constructor() { }
-  datausers:any[]=[];
-  form(demo:any) {
+  
+  form(demo: any) {
     this.datausers.push(demo);
-    console.log("service :" ,this.datausers)
+    console.log("service :", this.datausers)
   }
 
- storeUpdatedData(updatedProduct:any, UproductId:number){
-    this.updatedProductData=updatedProduct;
-    this.productId=UproductId;
- }
+  storeUpdatedData(updatedProduct: any, UproductId: number) {
+    this.updatedProductData = updatedProduct;
+    this.productId = UproductId;
+  }
 }

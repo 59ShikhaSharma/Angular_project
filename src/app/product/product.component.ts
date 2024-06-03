@@ -77,8 +77,6 @@ export class ProductComponent implements OnInit {
   showPopup: boolean = false;
   selectedProduct: any;
   @Output() addToCartEvent = new EventEmitter<IproductDetails[]>();
-  @Output() cartItemsChange = new EventEmitter<IproductDetails[]>();
-
 
   constructor(private productService: ProductService,
     private cartService: CartService,
@@ -87,8 +85,7 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe(
-      // (res: any) => {
-      //           console.log(res);
+
       (data: any) => {
         console.log(data);
         this.products = data.map((item: any) => ({
@@ -101,8 +98,8 @@ export class ProductComponent implements OnInit {
           quantity: 10,
           rating: item.rating
         }));
-        if(this.formDataService.productId!=-1){
-          this.products[this.formDataService.productId]=this.formDataService.updatedProductData
+        if (this.formDataService.productId != -1) {
+          this.products[this.formDataService.productId] = this.formDataService.updatedProductData
         }
         this.filteredProducts = this.products;
         this.formDataService.datausers.forEach((item) => {
@@ -122,10 +119,6 @@ export class ProductComponent implements OnInit {
 
   deleteProduct(id: number) {
     this.filteredProducts.splice(id, 1);
-  }
-
-  updateProduct() {
-    console.log("Product is updated");
   }
 
   filterProducts(query: string): void {

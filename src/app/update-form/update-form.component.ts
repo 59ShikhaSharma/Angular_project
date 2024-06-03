@@ -9,27 +9,28 @@ import { FormDataService } from '../services/form-data.service';
   styleUrls: ['./update-form.component.css']
 })
 export class UpdateFormComponent {
-  productId:number=-1;
-  productData:any;
+  productId: number = -1;
+  productData: any;
+  
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private formDataService:FormDataService
-  ) {}
+    private formDataService: FormDataService
+  ) { }
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
       this.productId = Number(params.get('id'));
     });
     this.productData = history.state;
     this.productForm.patchValue({
-      imageUrl:this.productData.imageUrl,
-    name: this.productData.name,
-    price: this.productData.price,
-    quantity:this.productData.quantity
+      imageUrl: this.productData.imageUrl,
+      name: this.productData.name,
+      price: this.productData.price,
+      quantity: this.productData.quantity
     });
   }
-  
+
   productForm = this.fb.group({
     imageUrl: [''],
     name: [''],
@@ -38,7 +39,7 @@ export class UpdateFormComponent {
   })
 
 
-  updateSubmit(){
+  updateSubmit() {
     const updatedProduct = this.productForm.value;
     this.formDataService.storeUpdatedData(updatedProduct, this.productId);
     this.router.navigate(['/product']);
