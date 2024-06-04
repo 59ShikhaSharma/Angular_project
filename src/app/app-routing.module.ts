@@ -4,7 +4,7 @@ import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
-import { FormComponent } from './form/form.component';
+import { CreateFormComponent} from './create-form/create-form.component';
 import { UpdateFormComponent } from './update-form/update-form.component';
 
 const routes: Routes = [
@@ -25,7 +25,7 @@ const routes: Routes = [
     path: 'contact', component: ContactComponent
   },
   {
-    path:'form', component:FormComponent
+    path:'form', component:CreateFormComponent
   },
 ];
 

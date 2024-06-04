@@ -11,7 +11,7 @@ import { FormDataService } from '../services/form-data.service';
 export class UpdateFormComponent {
   productId: number = -1;
   productData: any;
-  
+
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,

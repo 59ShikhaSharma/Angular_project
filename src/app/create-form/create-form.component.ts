@@ -3,10 +3,10 @@ import { FormDataService } from '../services/form-data.service';
 
 @Component({
   selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  templateUrl: './create-form.component.html',
+  styleUrls: ['./create-form.component.css']
 })
-export class FormComponent {
+export class CreateFormComponent {
   formData = {
     name: '',
     price: '',

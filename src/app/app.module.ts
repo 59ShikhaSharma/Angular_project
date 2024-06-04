@@ -18,7 +18,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { CartComponent } from './cart/cart.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormComponent } from './form/form.component';
+import { CreateFormComponent} from './create-form/create-form.component';
 import { UpdateFormComponent } from './update-form/update-form.component';
 
 
@@ -43,7 +43,7 @@ const routes: Routes = [
     ProductDetailsComponent,
     CartComponent,
     NotFoundComponent,
-    FormComponent,
+    CreateFormComponent,
     UpdateFormComponent
   ],
   imports: [

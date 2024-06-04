@@ -1,3 +1,29 @@
+<!-- <div class="product-container">
+  <div *ngFor="let product of filteredProducts; let i = index" class="product-item">
+    <img [src]="product.imageUrl" alt="Product Image">
+    <h2>{{ product.name }}</h2>
+    <p>Price: ${{ product.price }}</p>
+    <h1 (click)="showProductDescription(product)" style="color: blue;">Show more detail</h1>
+    <div class="actions">
+      <button class="add-to-cart-btn" (click)="addToCart(product)">Add to Cart</button>
+      <div>
+        <button class="add-to-cart" (click)="deleteProduct(i)">Delete</button>
+        <button class="add-to-cart" [routerLink]="'/update/'+i" [state]="product">Update</button>
+      </div>
+      <div class="rating">
+        <span class="star" (click)="rateProduct(product.id, 1)">☆</span>
+        <span class="star" (click)="rateProduct(product.id, 2)">☆</span>
+        <span class="star" (click)="rateProduct(product.id, 3)">☆</span>
+        <span class="star" (click)="rateProduct(product.id, 4)">☆</span>
+        <span class="star" (click)="rateProduct(product.id, 5)">☆</span>
+      </div>
+    </div>
+  </div>
+  <product-details *ngIf="showPopup" [showPopup]="showPopup" [selectedProduct]="selectedProduct"
+    (close)="hideProductDescription()">
+  </product-details>
+</div> -->
+
 <div class="product-container">
   <div *ngFor="let product of filteredProducts; let i = index" class="product-item">
     <img [src]="product.imageUrl" alt="Product Image">

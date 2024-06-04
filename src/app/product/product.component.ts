@@ -98,14 +98,16 @@ export class ProductComponent implements OnInit {
           quantity: 10,
           rating: item.rating
         }));
-        if (this.formDataService.productId != -1) {
-          this.products[this.formDataService.productId] = this.formDataService.updatedProductData
-        }
+       
+        //create product
         this.filteredProducts = this.products;
         this.formDataService.datausers.forEach((item) => {
           this.filteredProducts.unshift(item);
         })
-
+        if (this.formDataService.productId != -1) {
+          this.products[this.formDataService.productId] = this.formDataService.updatedProductData
+        }
+        //search
         this.route.queryParams.subscribe(params => {
           this.filterProducts(params['search'] || '');
         });
