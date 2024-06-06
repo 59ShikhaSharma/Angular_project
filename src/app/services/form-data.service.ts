@@ -4,18 +4,19 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class FormDataService {
-  updatedProductData: any
+  updatedProductData: any;
   productId: number = -1;
-  datausers: any[] = [];
+  productdata: any[] = [];
   constructor() { }
-  
-  form(demo: any) {
-    this.datausers.push(demo);
-    console.log("service :", this.datausers)
+
+  createform(values: any) {
+    this.productdata.push(values);
+    console.log("service :", this.productdata)
   }
 
   storeUpdatedData(updatedProduct: any, UproductId: number) {
     this.updatedProductData = updatedProduct;
     this.productId = UproductId;
   }
+
 }

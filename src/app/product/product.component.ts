@@ -75,7 +75,12 @@ export class ProductComponent implements OnInit {
   products: IproductDetails[] = [];
   filteredProducts: IproductDetails[] = [];
   showPopup: boolean = false;
+  showformPopup: boolean = false;
   selectedProduct: any;
+  updatedProductForm: any;
+  updatedIdNumber: number = -1;
+
+
   @Output() addToCartEvent = new EventEmitter<IproductDetails[]>();
 
   constructor(private productService: ProductService,
@@ -86,9 +91,9 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     this.productService.getProducts().subscribe(
 
-      (data: any) => {
-        console.log(data);
-        this.products = data.map((item: any) => ({
+      (product: any) => {
+        console.log(product);
+        this.products = product.map((item: any) => ({
           id: item.id,
           name: item.title,
           price: item.price,
@@ -98,15 +103,13 @@ export class ProductComponent implements OnInit {
           quantity: 10,
           rating: item.rating
         }));
-       
+
         //create product
         this.filteredProducts = this.products;
-        this.formDataService.datausers.forEach((item) => {
-          this.filteredProducts.unshift(item);
+        this.formDataService.productdata.forEach((item) => {
+          this.filteredProducts.push(item);
         })
-        if (this.formDataService.productId != -1) {
-          this.products[this.formDataService.productId] = this.formDataService.updatedProductData
-        }
+       
         //search
         this.route.queryParams.subscribe(params => {
           this.filterProducts(params['search'] || '');
@@ -154,6 +157,18 @@ export class ProductComponent implements OnInit {
     console.log('Added to cart:', this.cartItems);
     this.cartService.addToCart(product);
     alert('Item added to cart!');
+  }
+
+  //updateform
+  updateForm(item: any, id: number) {
+    this.updatedProductForm = item;
+    this.showformPopup = true;
+    this.updatedIdNumber = id;
+  }
+
+  updateFormResult(item: any) {
+    this.filteredProducts[this.updatedIdNumber] = item;
+    this.showformPopup = false;
   }
 
 }

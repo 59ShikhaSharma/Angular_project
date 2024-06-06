@@ -1,20 +1,19 @@
 <form [formGroup]="productForm" class="form-container" (ngSubmit)="updateSubmit()">
     <div class="form-group">
         <label for="name">Name of the Product:</label>
-        <input type="text" id="name" name="Name"   formControlName="name" required>
+        <input type="text" id="name" name="Name" formControlName="name" required>
     </div>
     <div class="form-group">
         <label for="price">Price of Product:</label>
-        <input type="text" id="price" name="price"  formControlName="price" required>
+        <input type="text" id="price" name="price" formControlName="price" required>
     </div>
     <div class="form-group">
         <label for="imageUrl">ImageUrl of the Product </label>
-        <input type="text" id="imageUrl" name="image"  formControlName="imageUrl" required>
+        <input type="text" id="imageUrl" name="image" formControlName="imageUrl" required>
     </div>
     <div class="form-group">
         <label for="quantity">Quantity of the Product </label>
-        <input type="text" id="quantity" name="quantity"  formControlName="quantity" required>
+        <input type="text" id="quantity" name="quantity" formControlName="quantity" required>
     </div>
     <button type="submit" class="submit-btn">Update</button>
 </form>
-

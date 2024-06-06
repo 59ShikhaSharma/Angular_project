@@ -11,13 +11,13 @@ export class CreateFormComponent {
     name: '',
     price: '',
     imageUrl: '',
-    quantity:''
+    quantity: ''
   };
 
- constructor(private formDataService:FormDataService){}
+  constructor(private formDataService: FormDataService) { }
 
   onSubmit() {
     console.log('Form submitted:', this.formData);
-    this.formDataService.form(this.formData)
+    this.formDataService.createform(this.formData);
   }
 }

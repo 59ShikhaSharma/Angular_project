@@ -14,9 +14,7 @@ export class CartService {
     if (existingItem) {
       existingItem.quantity += 1;
     } else if (!existingItem) {
-      this.cartItems.push(
-        product
-      );
+      this.cartItems.push(product);
     }
     else {
       window.alert("Out of stock !!! ")

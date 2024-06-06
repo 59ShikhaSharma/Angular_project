@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { FormDataService } from '../services/form-data.service';
 
 @Component({
   selector: 'app-update-form',
@@ -9,25 +7,22 @@ import { FormDataService } from '../services/form-data.service';
   styleUrls: ['./update-form.component.css']
 })
 export class UpdateFormComponent {
+
+  @Input() updatedProductForm: any;
+  @Output() updateFormResult: EventEmitter<any> = new EventEmitter<any>();
+  @Input() showformPopup: boolean = false;
   productId: number = -1;
   productData: any;
 
   constructor(
-    private fb: FormBuilder,
-    private route: ActivatedRoute,
-    private router: Router,
-    private formDataService: FormDataService
+    private fb: FormBuilder
   ) { }
   ngOnInit() {
-    this.route.paramMap.subscribe((params) => {
-      this.productId = Number(params.get('id'));
-    });
-    this.productData = history.state;
     this.productForm.patchValue({
-      imageUrl: this.productData.imageUrl,
-      name: this.productData.name,
-      price: this.productData.price,
-      quantity: this.productData.quantity
+      imageUrl: this.updatedProductForm.imageUrl,
+      name: this.updatedProductForm.name,
+      price: this.updatedProductForm.price,
+      quantity: this.updatedProductForm.quantity
     });
   }
 
@@ -38,10 +33,9 @@ export class UpdateFormComponent {
     quantity: [1]
   })
 
-
   updateSubmit() {
     const updatedProduct = this.productForm.value;
-    this.formDataService.storeUpdatedData(updatedProduct, this.productId);
-    this.router.navigate(['/product']);
+    this.updateFormResult.emit(updatedProduct);
   }
+
 }
