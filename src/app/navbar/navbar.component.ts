@@ -49,7 +49,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.cartItems = this.cartService.getCartItems();
   }
-
+  //event object is of type Event
   onSearch(event: Event): void {
     const query = (event.target as HTMLInputElement).value;
     this.router.navigate([], {

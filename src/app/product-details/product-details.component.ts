@@ -8,6 +8,6 @@ import { IproductDetails } from '../interface/product-interface';
 })
 export class ProductDetailsComponent {
   @Input() showPopup: boolean = false;
-  @Input() selectedProduct: any;
+  @Input() selectedProduct!: IproductDetails;
   @Output() close: EventEmitter<IproductDetails> = new EventEmitter<IproductDetails>();
 }

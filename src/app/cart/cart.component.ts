@@ -29,7 +29,7 @@ export class CartComponent implements OnInit {
       if (item.quantity === 0) {
         this.removeFromCart(item);
       }
-     this.calculateTotalPrice();
+      this.calculateTotalPrice();
     }
   }
 
@@ -37,7 +37,7 @@ export class CartComponent implements OnInit {
     const index = this.cartItems.indexOf(item);
     if (index !== -1) {
       this.cartItems.splice(index, 1);
-     this.calculateTotalPrice();
+      this.calculateTotalPrice();
     }
   }
   calculateTotalPrice() {

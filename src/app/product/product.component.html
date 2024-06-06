@@ -20,10 +20,10 @@
       </div>
     </div>
   </div>
-  <product-details *ngIf="showPopup" [showPopup]="showPopup" [selectedProduct]="selectedProduct"
+  <product-details *ngIf="showPopup && selectedProduct" [showPopup]="showPopup" [selectedProduct]="selectedProduct"
     (close)="hideProductDescription()">
   </product-details>
-  <app-update-form *ngIf="showformPopup" [updatedProductForm]="updatedProductForm"
+  <app-update-form *ngIf="showformPopup && updatedProductForm" [updatedProductForm]="updatedProductForm"
     (updateFormResult)="updateFormResult($event)">
   </app-update-form>
 

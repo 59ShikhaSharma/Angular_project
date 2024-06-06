@@ -109,7 +109,7 @@ export class ProductComponent implements OnInit {
         this.formDataService.productdata.forEach((item) => {
           this.filteredProducts.push(item);
         })
-       
+
         //search
         this.route.queryParams.subscribe(params => {
           this.filterProducts(params['search'] || '');

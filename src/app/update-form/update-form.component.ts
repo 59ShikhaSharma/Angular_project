@@ -9,7 +9,7 @@ import { IproductDetails } from '../interface/product-interface';
 })
 export class UpdateFormComponent {
 
-  @Input() updatedProductForm: any;
+  @Input() updatedProductForm!: IproductDetails;
   @Output() updateFormResult: EventEmitter<any> = new EventEmitter<IproductDetails>();
   @Input() showformPopup: boolean = false;
   productId: number = -1;
@@ -30,7 +30,7 @@ export class UpdateFormComponent {
   productForm = this.fb.group({
     imageUrl: [''],
     name: [''],
-    price: [null],
+    price: [3],
     quantity: [1]
   })
 
@@ -38,5 +38,5 @@ export class UpdateFormComponent {
     const updatedProduct = this.productForm.value;
     this.updateFormResult.emit(updatedProduct);
   }
-
 }
+

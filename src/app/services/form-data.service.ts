@@ -19,5 +19,4 @@ export class FormDataService {
     this.updatedProductData = updatedProduct;
     this.productId = UproductId;
   }
-
 }
