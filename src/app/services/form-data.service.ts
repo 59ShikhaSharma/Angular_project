@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
+import { IproductDetails } from '../interface/product-interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FormDataService {
-  updatedProductData: any;
+  updatedProductData: IproductDetails | undefined;
   productId: number = -1;
-  productdata: any[] = [];
+  productdata: IproductDetails[] = [];
   constructor() { }
 
   createform(values: any) {
@@ -14,7 +15,7 @@ export class FormDataService {
     console.log("service :", this.productdata)
   }
 
-  storeUpdatedData(updatedProduct: any, UproductId: number) {
+  storeUpdatedData(updatedProduct: IproductDetails, UproductId: number) {
     this.updatedProductData = updatedProduct;
     this.productId = UproductId;
   }

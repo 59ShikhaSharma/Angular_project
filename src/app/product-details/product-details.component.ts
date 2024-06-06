@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { IproductDetails } from '../interface/product-interface';
 
 @Component({
   selector: 'product-details',
@@ -8,5 +9,5 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class ProductDetailsComponent {
   @Input() showPopup: boolean = false;
   @Input() selectedProduct: any;
-  @Output() close: EventEmitter<any> = new EventEmitter<any>();
+  @Output() close: EventEmitter<IproductDetails> = new EventEmitter<IproductDetails>();
 }

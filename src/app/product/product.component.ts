@@ -76,8 +76,8 @@ export class ProductComponent implements OnInit {
   filteredProducts: IproductDetails[] = [];
   showPopup: boolean = false;
   showformPopup: boolean = false;
-  selectedProduct: any;
-  updatedProductForm: any;
+  selectedProduct: IproductDetails | undefined;
+  updatedProductForm: IproductDetails | undefined;
   updatedIdNumber: number = -1;
 
 
@@ -93,7 +93,7 @@ export class ProductComponent implements OnInit {
 
       (product: any) => {
         console.log(product);
-        this.products = product.map((item: any) => ({
+        this.products = product.map((item: IproductDetails) => ({
           id: item.id,
           name: item.title,
           price: item.price,
@@ -138,7 +138,7 @@ export class ProductComponent implements OnInit {
     }
   }
 
-  showProductDescription(product: any): void {
+  showProductDescription(product: IproductDetails): void {
     this.showPopup = true;
     this.selectedProduct = product;
   }
@@ -160,13 +160,13 @@ export class ProductComponent implements OnInit {
   }
 
   //updateform
-  updateForm(item: any, id: number) {
+  updateForm(item: IproductDetails, id: number) {
     this.updatedProductForm = item;
     this.showformPopup = true;
     this.updatedIdNumber = id;
   }
 
-  updateFormResult(item: any) {
+  updateFormResult(item: IproductDetails) {
     this.filteredProducts[this.updatedIdNumber] = item;
     this.showformPopup = false;
   }

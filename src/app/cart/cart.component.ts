@@ -18,12 +18,12 @@ export class CartComponent implements OnInit {
     this.calculateTotalPrice();
   }
 
-  increaseQuantity(item: any) {
+  increaseQuantity(item: IproductDetails) {
     item.quantity++;
     this.calculateTotalPrice();
   }
 
-  decreaseQuantity(item: any) {
+  decreaseQuantity(item: IproductDetails) {
     if (item.quantity > 0) {
       item.quantity--;
       if (item.quantity === 0) {
@@ -33,7 +33,7 @@ export class CartComponent implements OnInit {
     }
   }
 
-  removeFromCart(item: any) {
+  removeFromCart(item: IproductDetails) {
     const index = this.cartItems.indexOf(item);
     if (index !== -1) {
       this.cartItems.splice(index, 1);

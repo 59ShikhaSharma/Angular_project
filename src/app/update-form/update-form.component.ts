@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { IproductDetails } from '../interface/product-interface';
 
 @Component({
   selector: 'app-update-form',
@@ -9,10 +10,10 @@ import { FormBuilder } from '@angular/forms';
 export class UpdateFormComponent {
 
   @Input() updatedProductForm: any;
-  @Output() updateFormResult: EventEmitter<any> = new EventEmitter<any>();
+  @Output() updateFormResult: EventEmitter<any> = new EventEmitter<IproductDetails>();
   @Input() showformPopup: boolean = false;
   productId: number = -1;
-  productData: any;
+  productData: IproductDetails | undefined;
 
   constructor(
     private fb: FormBuilder
